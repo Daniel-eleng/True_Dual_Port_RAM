@@ -21,13 +21,13 @@
 
 
 module RAM(input clk_a, write_en_a, 
-           input addr_a[2:0], 
-           input data_in_a[7:0], 
-           output reg data_out_a[7:0]
+           input [2:0]addr_a, 
+           input [7:0]data_in_a, 
+           output reg [7:0]data_out_a,
            input clk_b, write_en_b,
-           input addr_b[2:0],
-           input data_in_b[7:0],
-           output reg data_out_b[7:0]);
+           input [2:0]addr_b,
+           input [7:0]data_in_b,
+           output reg [7:0]data_out_b);
     
     reg [7:0]memory[0:7];
 
@@ -43,7 +43,7 @@ module RAM(input clk_a, write_en_a,
     always @(posedge clk_b) begin
         if(write_en_b) begin
             memory[addr_b] <= data_in_b;
-            data_out_b <= data_out_b;
+            data_out_b <= data_in_b;
         end
         else
             data_out_b <= memory[addr_b];
