@@ -2,21 +2,18 @@
 
 module RAM_tb;
 
-    // --- Semnale Port A ---
     reg clk_a;
     reg write_en_a;
     reg [2:0] addr_a;
     reg [7:0] data_in_a;
     wire [7:0] data_out_a;
 
-    // --- Semnale Port B ---
     reg clk_b;
     reg write_en_b;
     reg [2:0] addr_b;
     reg [7:0] data_in_b;
     wire [7:0] data_out_b;
 
-    // --- Instantierea DUT ---
     RAM TEST(
         .clk_a(clk_a),
         .write_en_a(write_en_a),
